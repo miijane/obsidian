@@ -21,9 +21,13 @@ jobs:
     - name: Run script
       run: |
         python mdtojson.py
+
+    - name: display files
+      run: |
+        ls -a
       
     - name: Upload file as artifact
       uses: actions/upload-artifact@v3
       with:
         name: json-artifact
-        path: ./json.db
+        path: ~/obsidian/json.db
