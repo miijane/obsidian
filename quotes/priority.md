@@ -1,0 +1,1 @@
+> In terms of priority, inspiration comes first. You come next. The audience comes last.

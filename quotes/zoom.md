@@ -1,0 +1,1 @@
+> Zoom in and obsess. Zoom out and observe. We get to choose.
