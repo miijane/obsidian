@@ -11,6 +11,7 @@ for quote_file in quote_files:
     print(markdown.markdown(f.read()))
 
 def write_json_data():
+    print("writing json data...")
     with open("db.json", "w") as json_file:
         json.dump(
             {
