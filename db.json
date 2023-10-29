@@ -1,7 +1,8 @@
-{
-    "quotes": [
-        {
-            "text": "first trial"
-        }
-    ]
-}
+[
+    {
+        "quote": "this is a test quote."
+    },
+    {
+        "quote": "this is another test quote"
+    }
+]

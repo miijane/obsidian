@@ -2,27 +2,32 @@ import os
 import glob
 import json
 import markdown
+from bs4 import BeautifulSoup
 
 quote_files = glob.glob("quotes/**")
+quote_list = []
 
 for quote_file in quote_files:
-    print(quote_file)
     f = open(quote_file, 'r')
-    print(markdown.markdown(f.read()))
+    html = markdown.markdown(f.read())
+    soup = BeautifulSoup(html, 'html.parser')
+    quote = soup.find('blockquote')
 
-def write_json_data():
-    print("writing json data...")
-    with open("db.json", "w") as json_file:
-        json.dump(
+    if quote: 
+        quote_list.append(
             {
-                "quotes": [
-                    {
-                        "text": "first trial"
-                    }
-                ]
-            },
+                'quote': quote.get_text(strip=True)
+            }
+        )
+    
+def write_json_data(quote_list):
+    with open("db.json", "w") as json_file:
+        # json_content = json.dumps(quote_list, indent=4)
+        # print(json_content)
+        json.dump(
+            quote_list,
             json_file,
             indent=4
         )
 
-write_json_data()
+write_json_data(quote_list)
