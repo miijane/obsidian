@@ -1,0 +1,18 @@
+name: Upload JSON file
+
+on:
+  workflow_run:
+    workflows: ["MD to JSON converter"]
+    types:
+      - completed
+
+jobs:
+  download_artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: json-artifact
+        path: ./json.db
